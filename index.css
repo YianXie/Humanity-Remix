@@ -1,0 +1,62 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+html {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    overflow: auto;
+    font-family: "Open Sans", serif;
+    box-sizing: border-box;
+}
+
+/* Bottom */
+h3.author {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+}
+
+.content, h1.title {
+    margin-left: 5%;
+}
+
+.content {
+    text-align: left;
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.content .game-button {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background: rgba(211, 211, 211, 0.3);
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    animation: fadeIn 0.75s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.content .game-button-hidden {
+    opacity: 0;
+}
+
+.content .game-button:hover, .content .game-button:focus {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
