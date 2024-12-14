@@ -1,4 +1,5 @@
 let userGuide, dialogues;
+let julietAlreadyKnew = false;
 const julietDialogue = {
     start: [
         "Now, nurse, what news? What hast thou there? The cords that Romeo bid thee fetch?"
@@ -26,7 +27,7 @@ const julietDialogue = {
         "Shall I speak ill of him that is my husband?"
     ],
     whatHappenedToTybalt: [
-        "What else happened?",
+        "What happened to Tybalt?",
         "O God, did Romeo's hand shed Tybalt's blood?"
     ],
 }
@@ -210,10 +211,12 @@ const game = {
             }
         }
 
+        julietAlreadyKnew = true;
+
         addButton(dialogues, [
             {
                 text: "What happened to Romeo then?",
-                callback: game.scoldTheNurse
+                callback: game.whatHappenedToRomeo
             }
         ]);
     },
@@ -258,16 +261,25 @@ const game = {
             }
         }
 
-        addButton(dialogues, [
-            {
-                text: "What else happened?",
-                callback: game.whatHappenedToTybalt
-            },
-            {
-                text: "Romeo was not born to shame",
-                callback: game.notBornToShame
-            }
-        ]);
+        if (!julietAlreadyKnew) {
+            addButton(dialogues, [
+                {
+                    text: "What happened?",
+                    callback: game.whatHappenedToTybalt
+                },
+                {
+                    text: "Romeo was not born to shame",
+                    callback: game.notBornToShame
+                }
+            ]);
+        } else {
+            addButton(dialogues, [
+                {
+                    text: "Romeo was not born to shame",
+                    callback: game.notBornToShame
+                }
+            ]);
+        }
     },
     notBornToShame: async () => {
         mouseClickSound.play();
